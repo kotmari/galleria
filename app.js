@@ -5,7 +5,6 @@ const btnStopSlideshow = document.querySelector('.btn-stop')
 
 
 let data = [];
-let firstItemLink = '';
 let columnIndexes;
 
 
@@ -115,6 +114,7 @@ function showPageDetailis(index) {
   const prog = ((index + 1) / data.length) * 100;
 
   container.innerHTML = `${getDescriptionHTML(page, prog)}`;
+
   const btnPrev = document.querySelector('.first-icon.prev');
   const btnNext = document.querySelector('.first-icon.next');
   const btnOpenModal = document.querySelector('.open-modal');
@@ -230,7 +230,8 @@ function getDescriptionHTML(page, prog) {
 btnStartSlideshow.addEventListener('click', () => {
   if (data.length > 0) {
     showPageDetailis(0);
-    history.pushState({ index: 0 }, '', firstItemLink);
+    const url = `?page=gallery&name=${encodeURIComponent(data[0].name)}&index=${0}`;
+    history.pushState({ index: 0 }, '', url);
     btnStartSlideshow.style.display = 'none';
     btnStopSlideshow.style.display = 'block'
   }
