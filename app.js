@@ -240,7 +240,7 @@ btnStartSlideshow.addEventListener('click', () => {
 btnStopSlideshow.addEventListener('click', () => {
   btnStartSlideshow.style.display = 'block';
   btnStopSlideshow.style.display = 'none'
-  history.pushState({}, '', '/');
+  history.pushState({}, '', '/galleria/');
   container.innerHTML = '';
   renderGallery();
 })
